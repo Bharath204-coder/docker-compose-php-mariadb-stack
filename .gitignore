@@ -1,0 +1,10 @@
+# Ignore database data
+var/lib/mysql
+volumes/mysql
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
