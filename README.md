@@ -1,58 +1,82 @@
-Docker Compose PHP & MariaDB Multi-Container Application
-📌 Project Overview
+# Docker Compose PHP & MariaDB Stack
 
-This project demonstrates the deployment of a multi-container web application using Docker Compose.
-The application consists of a PHP Apache web server and a MariaDB database, orchestrated together to simulate a real-world containerized stack used in production environments.
+## 📌 Overview
 
-The primary focus of this project is container orchestration, service communication, persistent storage, and environment-based configuration, rather than application complexity.
+This project demonstrates a simple **multi-container application deployment** using **Docker Compose**.  
+It includes a **PHP application running on Apache** and a **MariaDB database**, each running in separate containers and managed together.
 
-🏗️ Architecture
-Web Service
-PHP application running on Apache
-Exposed via host port 8083
-Database Service
-MariaDB database
-Uses persistent storage for data durability
-Docker Compose
-Orchestrates multiple containers
-Handles networking and dependency management
+The project focuses on basic **Docker and DevOps concepts** such as containerization, service orchestration, persistent storage using volumes, and environment-based configuration.  
+It represents a typical setup used in real-world applications where the web and database services run independently but communicate through Docker networking.
 
-🛠️ Technologies Used
+---
 
-Docker
-Docker Compose (v2)
-PHP
-Apache
-MariaDB
-Linux
+## 🏗️ Architecture
+The application follows a simple two-tier architecture:
 
-⚙️ Key Features
+- **Web Tier**
+  - PHP application running on Apache
+  - Exposed via host port `8083`
 
-Multi-container deployment using Docker Compose
-Persistent volumes for database and application data
-Environment variable–based database configuration
-Secure database setup using a non-root user
-Service dependency management using depends_on
+- **Database Tier**
+  - MariaDB database
+  - Uses persistent storage for data durability
 
-How to Run the Project
-Prerequisites
+---
 
-Docker installed
+## 🛠️ Technologies Used
+- Docker
+- Docker Compose (v2)
+- PHP
+- Apache
+- MariaDB
+- Linux
 
-Docker Compose v2 enabled
+---
 
-Steps
+---
 
-Clone the repository:
+## ⚙️ Prerequisites
+Make sure the following tools are installed on your system:
 
-git clone https://github.com/Bharath204-coder/docker-compose-php-mariadb-stack.git
+```bash
+docker --version
+docker compose version
+```
+## 🚀 How to Run the Project
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/<your-username>/docker-compose-php-mariadb-stack.git
 cd docker-compose-php-mariadb-stack
-
-Start the containers:
+```
+### 2️⃣ Start the Application
+```bash
 docker compose up -d
-
-Verify running containers:
+```
+### 3️⃣ Verify Running Containers
+```bash
 docker ps
-
-Access the application:
+```
+### You should see two running containers:
+- php_host
+- mysql_host
+### 4️⃣ Access the Application
+- If running locally:
+```bash
 curl localhost:8083
+```
+- If running on a remote server:
+```bash
+curl <server-ip>:8083
+```
+### 5️⃣ Stop the Application
+```bash
+docker compose down
+```
+### ⭐ Key Features
+- Multi-container orchestration using Docker Compose
+- Persistent storage using Docker volumes
+- Service-to-service communication via Docker networking
+- Port mapping to expose services
+- Environment-based configuration
+- Production-like containerized deployment workflow
